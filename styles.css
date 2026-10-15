@@ -1,0 +1,312 @@
+:root {
+    --bg-dark: #121214;
+    --bg-panel: #1e1e24;
+    --accent: #ff0055;
+    --accent-glow: #ff0055aa;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --neon-blue: #00f3ff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, button {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    font-size: 24px;
+}
+
+.user-status {
+    color: var(--text-dim);
+    font-size: 14px;
+}
+
+/* Game Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.game-card {
+    background: var(--bg-panel);
+    border: 2px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.game-card.active {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.game-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #000;
+}
+
+.game-info {
+    padding: 15px;
+}
+
+.game-title {
+    font-size: 18px;
+    color: var(--text-main);
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.game-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+}
+
+.play-btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background: var(--accent);
+    color: var(--text-main);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.play-btn:hover {
+    background: #fff;
+    color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Leaderboard */
+.leaderboard-section {
+    background: var(--bg-panel);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.leaderboard-section h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--neon-blue);
+}
+
+.leaderboard-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    color: var(--accent);
+    font-size: 12px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.replay-link {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-size: 12px;
+    border: 1px solid var(--neon-blue);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.replay-link:hover {
+    background: var(--neon-blue);
+    color: #000;
+}
+
+/* Modal / Iframe */
+.game-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-toolbar {
+    height: 50px;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #333;
+}
+
+#modal-game-title {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+#close-modal-btn {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#close-modal-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.iframe-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Video Replay Preview */
+.replay-container {
+    position: relative;
+    width: 140px;
+    height: 80px;
+    background: #000;
+    border-radius: 4px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.replay-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+}
+
+.replay-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background: #000;
+}
+
+.fullscreen-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: system-ui, sans-serif; /* Ensure icon renders */
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+    z-index: 10;
+    padding: 0;
+}
+
+.replay-container:hover .fullscreen-btn {
+    opacity: 1;
+}
+
+.fullscreen-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+}

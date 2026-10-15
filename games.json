@@ -1,0 +1,40 @@
+[
+  {
+    "id": "grapple",
+    "visible": false,
+    "title": "Grapple",
+    "url": "https://grapple--api.on.websim.com",
+    "description": "Swing through the void. Don't let go.",
+    "thumbnail": "grapple_thumb.png",
+    "labels": [
+      "distance",
+      "grapples"
+    ]
+  },
+  {
+    "id": "grapple_beta",
+    "visible": true,
+    "title": "Grapple Beta",
+    "url": "https://grapple-19--api.on.websim.com/",
+    "description": "Experimental build. Test the limits.",
+    "thumbnail": "grapple_thumb.png",
+    "labels": [
+      "distance",
+      "grapples"
+    ],
+    "replay_render_url": "https://grapple-19--api.on.websim.com/"
+  },
+  {
+    "id": "circle_tap_beta",
+    "visible": true,
+    "title": "Circle Tap Beta",
+    "url": "https://circletapbeta1--api.on.websim.com/",
+    "description": "Experimental build. Test the limits.",
+    "thumbnail": "grapple_thumb.png",
+    "labels": [
+      "level",
+      "taps"
+    ],
+    "replay_render_url": "https://circle-tap-render--api.on.websim.com/"
+  }
+]
